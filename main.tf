@@ -4,9 +4,9 @@ module "S3" {
 
 terraform {
   backend "s3" {
-    bucket = "fiap-${terraform.workspace}"
-    key    = "teste"
-    region = "${var.aws_region}"
+    bucket = "fiap-trabalho"
+    key    = "fiap-trabalho.tfstate"
+    region = "us-east-1"
   }
 }
 
