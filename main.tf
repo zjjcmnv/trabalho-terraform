@@ -1,5 +1,5 @@
-module "S3" {
-   source= "./s3"
+provider "aws" {
+  region = "us-east-1"
 }
 
 terraform {
@@ -10,12 +10,7 @@ terraform {
   }
 }
 
-module "alb" {
-    source= "./loadbalancer"
-}
-
 module "instance" {
     source= "./instances"
 }
-
 

@@ -4,3 +4,4 @@ output "address" {
      instance.id => "http://${instance.public_dns}"
   }
 }
+

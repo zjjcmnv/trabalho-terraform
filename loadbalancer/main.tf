@@ -1,8 +1,8 @@
 resource "aws_elb" "web" {
   name = "terraform-elb-${terraform.workspace}"
 
-  subnets         = data.aws_subnets.all.ids
-  security_groups = ["${aws_security_group.allow-ssh.id}"]
+  subnets         =var.subnet_ids
+  security_groups = ["${var.sgs}"]
 
   listener {
     instance_port     = 80
@@ -20,5 +20,6 @@ resource "aws_elb" "web" {
   }
 
   # The instances are registered automatically
-  instances = aws_instance.web.*.id
+  instances = var.instance
+  
 }
